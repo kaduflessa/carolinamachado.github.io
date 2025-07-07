@@ -1,38 +1,203 @@
-.App {
-    text-align: center;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom color variables */
+:root {
+  --medical-blue: #1E40AF;
+  --health-green: #059669;
+  --light-blue: #EFF6FF;
+  --light-green: #ECFDF5;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Custom Tailwind classes */
+.text-medical-blue {
+  color: var(--medical-blue);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.bg-medical-blue {
+  background-color: var(--medical-blue);
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+.text-health-green {
+  color: var(--health-green);
 }
 
-.App-link {
-    color: #61dafb;
+.bg-health-green {
+  background-color: var(--health-green);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.bg-light-blue {
+  background-color: var(--light-blue);
+}
+
+.bg-light-green {
+  background-color: var(--light-green);
+}
+
+/* Custom styles */
+.gradient-hero {
+  background: linear-gradient(135deg, var(--medical-blue) 0%, #3B82F6 100%);
+}
+
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-shadow:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors;
+}
+
+/* Animation styles */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Course card styles */
+.course-card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300;
+}
+
+.course-card img {
+  @apply w-full h-48 object-cover;
+}
+
+.course-card-content {
+  @apply p-6;
+}
+
+/* Dashboard styles */
+.dashboard-card {
+  @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300;
+}
+
+.stat-card {
+  @apply bg-white rounded-lg shadow-md p-6 flex items-center;
+}
+
+.stat-icon {
+  @apply p-3 rounded-full;
+}
+
+.stat-content {
+  @apply ml-4;
+}
+
+.stat-label {
+  @apply text-sm font-medium text-gray-600;
+}
+
+.stat-value {
+  @apply text-2xl font-bold text-gray-800;
+}
+
+/* Header styles */
+.header-nav {
+  @apply flex justify-between items-center py-6;
+}
+
+.nav-button {
+  @apply px-3 py-2 rounded-md text-sm font-medium transition-colors;
+}
+
+.nav-button-active {
+  @apply bg-blue-600 text-white;
+}
+
+.nav-button-inactive {
+  @apply text-gray-700 hover:text-blue-600;
+}
+
+/* Hero section styles */
+.hero-section {
+  @apply bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20;
+}
+
+.hero-content {
+  @apply flex flex-col lg:flex-row items-center;
+}
+
+.hero-text {
+  @apply lg:w-1/2;
+}
+
+.hero-image {
+  @apply lg:w-1/2 mt-10 lg:mt-0;
+}
+
+/* Footer styles */
+.footer {
+  @apply bg-gray-800 text-white py-8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-content {
+    @apply flex-col text-center;
+  }
+  
+  .hero-text {
+    @apply w-full mb-8;
+  }
+  
+  .hero-image {
+    @apply w-full mt-0;
+  }
+}
+
+/* Loading spinner */
+.loading-spinner {
+  @apply animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600;
+}
+
+/* Error message */
+.error-message {
+  @apply bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4;
+}
+
+/* Success message */
+.success-message {
+  @apply bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
